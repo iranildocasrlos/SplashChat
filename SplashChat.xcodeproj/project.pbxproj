@@ -3,19 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B8038733DA335331A24BACB /* Pods_SplashChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E82DC992CA561AB4F6865A /* Pods_SplashChat.framework */; };
 		8A3CF99D24126A0400A5537E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CF99C24126A0400A5537E /* AppDelegate.swift */; };
 		8A3CF99F24126A0400A5537E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CF99E24126A0400A5537E /* SceneDelegate.swift */; };
 		8A3CF9A124126A0400A5537E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CF9A024126A0400A5537E /* ViewController.swift */; };
 		8A3CF9A424126A0400A5537E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A3CF9A224126A0400A5537E /* Main.storyboard */; };
 		8A3CF9A624126A0D00A5537E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A3CF9A524126A0D00A5537E /* Assets.xcassets */; };
 		8A3CF9A924126A0D00A5537E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A3CF9A724126A0D00A5537E /* LaunchScreen.storyboard */; };
+		8A3CF9B124126F4F00A5537E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A3CF9B024126F4F00A5537E /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15EF3411262CD578073C6149 /* Pods-SplashChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SplashChat.release.xcconfig"; path = "Target Support Files/Pods-SplashChat/Pods-SplashChat.release.xcconfig"; sourceTree = "<group>"; };
+		59E82DC992CA561AB4F6865A /* Pods_SplashChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SplashChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A3CF99924126A0400A5537E /* SplashChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplashChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A3CF99C24126A0400A5537E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A3CF99E24126A0400A5537E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +28,8 @@
 		8A3CF9A524126A0D00A5537E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A3CF9A824126A0D00A5537E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A3CF9AA24126A0D00A5537E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A3CF9B024126F4F00A5537E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D74DE61F19167E6D17C31B68 /* Pods-SplashChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SplashChat.debug.xcconfig"; path = "Target Support Files/Pods-SplashChat/Pods-SplashChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B8038733DA335331A24BACB /* Pods_SplashChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		730F34C0CD97EB04481FA301 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D74DE61F19167E6D17C31B68 /* Pods-SplashChat.debug.xcconfig */,
+				15EF3411262CD578073C6149 /* Pods-SplashChat.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8A3CF99024126A0400A5537E = {
 			isa = PBXGroup;
 			children = (
 				8A3CF99B24126A0400A5537E /* SplashChat */,
 				8A3CF99A24126A0400A5537E /* Products */,
+				730F34C0CD97EB04481FA301 /* Pods */,
+				E2D37496D70DABB09721DBDE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +81,17 @@
 				8A3CF9A524126A0D00A5537E /* Assets.xcassets */,
 				8A3CF9A724126A0D00A5537E /* LaunchScreen.storyboard */,
 				8A3CF9AA24126A0D00A5537E /* Info.plist */,
+				8A3CF9B024126F4F00A5537E /* GoogleService-Info.plist */,
 			);
 			path = SplashChat;
+			sourceTree = "<group>";
+		};
+		E2D37496D70DABB09721DBDE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59E82DC992CA561AB4F6865A /* Pods_SplashChat.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A3CF9AD24126A0D00A5537E /* Build configuration list for PBXNativeTarget "SplashChat" */;
 			buildPhases = (
+				3837DC4B1EC5D057930655F0 /* [CP] Check Pods Manifest.lock */,
 				8A3CF99524126A0400A5537E /* Sources */,
 				8A3CF99624126A0400A5537E /* Frameworks */,
 				8A3CF99724126A0400A5537E /* Resources */,
+				BFF4116A41A1E6C73EE5D104 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +155,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A3CF9A924126A0D00A5537E /* LaunchScreen.storyboard in Resources */,
+				8A3CF9B124126F4F00A5537E /* GoogleService-Info.plist in Resources */,
 				8A3CF9A624126A0D00A5537E /* Assets.xcassets in Resources */,
 				8A3CF9A424126A0400A5537E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3837DC4B1EC5D057930655F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SplashChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BFF4116A41A1E6C73EE5D104 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SplashChat/Pods-SplashChat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SplashChat/Pods-SplashChat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SplashChat/Pods-SplashChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8A3CF99524126A0400A5537E /* Sources */ = {
@@ -282,6 +354,7 @@
 		};
 		8A3CF9AE24126A0D00A5537E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D74DE61F19167E6D17C31B68 /* Pods-SplashChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +373,7 @@
 		};
 		8A3CF9AF24126A0D00A5537E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15EF3411262CD578073C6149 /* Pods-SplashChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
