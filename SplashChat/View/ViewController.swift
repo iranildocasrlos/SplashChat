@@ -14,6 +14,27 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+    @IBAction func btLogin(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "SegueLogin", sender: nil)
+        
+        
+    }
+    
+    
+    
+    
+    @IBAction func btCreate(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "SegueCreateAccount", sender: nil)
+               
+    }
+    
+    
+    
 
 
 }
