@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		15EF3411262CD578073C6149 /* Pods-SplashChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SplashChat.release.xcconfig"; path = "Target Support Files/Pods-SplashChat/Pods-SplashChat.release.xcconfig"; sourceTree = "<group>"; };
 		59E82DC992CA561AB4F6865A /* Pods_SplashChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SplashChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A3CF99924126A0400A5537E /* SplashChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplashChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A3CF99924126A0400A5537E /* InstanChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstanChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A3CF99C24126A0400A5537E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A3CF99E24126A0400A5537E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8A3CF9A024126A0400A5537E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		8A3CF99A24126A0400A5537E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A3CF99924126A0400A5537E /* SplashChat.app */,
+				8A3CF99924126A0400A5537E /* InstanChat.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,9 +97,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8A3CF99824126A0400A5537E /* SplashChat */ = {
+		8A3CF99824126A0400A5537E /* InstanChat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8A3CF9AD24126A0D00A5537E /* Build configuration list for PBXNativeTarget "SplashChat" */;
+			buildConfigurationList = 8A3CF9AD24126A0D00A5537E /* Build configuration list for PBXNativeTarget "InstanChat" */;
 			buildPhases = (
 				3837DC4B1EC5D057930655F0 /* [CP] Check Pods Manifest.lock */,
 				8A3CF99524126A0400A5537E /* Sources */,
@@ -111,9 +111,9 @@
 			);
 			dependencies = (
 			);
-			name = SplashChat;
+			name = InstanChat;
 			productName = SplashChat;
-			productReference = 8A3CF99924126A0400A5537E /* SplashChat.app */;
+			productReference = 8A3CF99924126A0400A5537E /* InstanChat.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -131,7 +131,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8A3CF99424126A0400A5537E /* Build configuration list for PBXProject "SplashChat" */;
+			buildConfigurationList = 8A3CF99424126A0400A5537E /* Build configuration list for PBXProject "InstanChat" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -144,7 +144,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8A3CF99824126A0400A5537E /* SplashChat */,
+				8A3CF99824126A0400A5537E /* InstanChat */,
 			);
 		};
 /* End PBXProject section */
@@ -393,7 +393,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8A3CF99424126A0400A5537E /* Build configuration list for PBXProject "SplashChat" */ = {
+		8A3CF99424126A0400A5537E /* Build configuration list for PBXProject "InstanChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A3CF9AB24126A0D00A5537E /* Debug */,
@@ -402,7 +402,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A3CF9AD24126A0D00A5537E /* Build configuration list for PBXNativeTarget "SplashChat" */ = {
+		8A3CF9AD24126A0D00A5537E /* Build configuration list for PBXNativeTarget "InstanChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A3CF9AE24126A0D00A5537E /* Debug */,
