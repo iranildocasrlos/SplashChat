@@ -7,8 +7,28 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+
+
 
 class CreateViewController: UIViewController {
+    
+    
+    @IBOutlet weak var campoNome: UITextField!
+    
+    
+    @IBOutlet weak var campoEmail: UITextField!
+    
+    
+    @IBOutlet weak var campoSenha: UITextField!
+    
+    
+    let autenticacao = Auth.auth()
+    let database = Database.database().reference().child("usuarios")
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +36,48 @@ class CreateViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    
+    func exibirMensagem(titulo: String, mensagem : String ){
+        let alerta = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
+        let acaoCancelar = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        alerta.addAction(acaoCancelar)
+        present(alerta, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func btCreate(_ sender: Any) {
+        
+        if let nome = self.campoNome.text{
+            if let email = self.campoEmail.text{
+                if let senha = self.campoSenha.text{
+                    
+                    autenticacao.createUser(withEmail: email, password: senha) { (success, erro) in
+                        if success != nil{
+                            self.exibirMensagem(titulo: "Success", mensagem: "Successfully authenticated ... ")
+                            let dadosUsuario  = [
+                            
+                                "nome" : nome,
+                                "email" : email,
+                                "senha" : senha
+                            
+                            
+                            ] as? [String : Any]
+                            
+                            
+                            self.database.child(self.autenticacao.currentUser!.uid).setValue(dadosUsuario)
+                            print("Criado base de dados...")
+                            
+                        }
+                    }
+                }
+            }
+        }
+        
+       
+        
+    }
+    
     /*
     // MARK: - Navigation
 
