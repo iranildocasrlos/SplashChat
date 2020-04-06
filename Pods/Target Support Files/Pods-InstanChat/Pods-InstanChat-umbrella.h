@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_SplashChatVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_SplashChatVersionString[];
+FOUNDATION_EXPORT double Pods_InstanChatVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_InstanChatVersionString[];
 

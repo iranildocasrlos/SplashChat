@@ -36,6 +36,10 @@ class CreateViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setToolbarHidden(true, animated: true)
+    }
+    
     
     func exibirMensagem(titulo: String, mensagem : String ){
         let alerta = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
@@ -67,7 +71,7 @@ class CreateViewController: UIViewController {
                             
                             self.database.child(self.autenticacao.currentUser!.uid).setValue(dadosUsuario)
                             print("Criado base de dados...")
-                            
+                            self.performSegue(withIdentifier: "SegueCadastroPrincipal", sender: nil)
                         }
                     }
                 }
@@ -76,6 +80,13 @@ class CreateViewController: UIViewController {
         
        
         
+    }
+    
+    
+    
+    @IBAction func btSair(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
     }
     
     /*
