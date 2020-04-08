@@ -19,6 +19,7 @@
 		8AD27CED2428F4F8009F398B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD27CEC2428F4F8009F398B /* LoginViewController.swift */; };
 		8AD27CEF2428F511009F398B /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD27CEE2428F511009F398B /* CreateViewController.swift */; };
 		8AD624BA242C609D001A3DF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AD624B9242C609D001A3DF9 /* Main.storyboard */; };
+		8AE02777243D72E50054252C /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE02776243D72E50054252C /* Alerta.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		8AD27CEC2428F4F8009F398B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8AD27CEE2428F511009F398B /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		8AD624B9242C609D001A3DF9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8AE02776243D72E50054252C /* Alerta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
 		D74DE61F19167E6D17C31B68 /* Pods-SplashChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SplashChat.debug.xcconfig"; path = "Target Support Files/Pods-SplashChat/Pods-SplashChat.debug.xcconfig"; sourceTree = "<group>"; };
 		F2C3CF030468314A8AAA25D8 /* Pods-InstanChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanChat.release.xcconfig"; path = "Target Support Files/Pods-InstanChat/Pods-InstanChat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +88,7 @@
 		8A3CF99B24126A0400A5537E /* SplashChat */ = {
 			isa = PBXGroup;
 			children = (
+				8AE02775243D728D0054252C /* model */,
 				8AD27CF02428F51B009F398B /* View */,
 				8A3CF99C24126A0400A5537E /* AppDelegate.swift */,
 				8A3CF99E24126A0400A5537E /* SceneDelegate.swift */,
@@ -108,6 +111,14 @@
 				8AA3CC70243ACE4E00CC60E6 /* FotoViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8AE02775243D728D0054252C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				8AE02776243D72E50054252C /* Alerta.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		E2D37496D70DABB09721DBDE /* Frameworks */ = {
@@ -234,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AE02777243D72E50054252C /* Alerta.swift in Sources */,
 				8AD27CEF2428F511009F398B /* CreateViewController.swift in Sources */,
 				8AA3CC71243ACE4E00CC60E6 /* FotoViewController.swift in Sources */,
 				8AD27CED2428F4F8009F398B /* LoginViewController.swift in Sources */,

@@ -31,6 +31,8 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate & UI
         // Do any additional setup after loading the view.
         
         imagePicker.delegate = self
+        self.nextButton.isEnabled = false
+        self.nextButton.backgroundColor = UIColor.gray
     }
     
     
@@ -49,6 +51,9 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate & UI
         imagem.image = imagemRecuperada
         
         imagePicker.dismiss(animated: true, completion: nil)
+        self.nextButton.isEnabled = true
+        self.nextButton.backgroundColor = UIColor(red: 0.949, green: 0.153, blue: 0.337, alpha: 1)
+        
     }
     
     
@@ -86,11 +91,8 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate & UI
                                
                            }else{
                             
-                            print("Erro ao fazer o upload do Arquivo")
-                            
-
-                              // let alerta = Alerta(titulo: "Upload falhou", mensagem: "Erro ao salvar o arquivo, tente novamente!")
-                              // self.present(alerta.getAlerta(), animated: true, completion: nil)
+                               let alerta = Alerta(titulo: "Upload fail", mensagem: "Error saving file, try again!")
+                               self.present(alerta.getAlerta(), animated: true, completion: nil)
                                
                            }
                            
