@@ -67,7 +67,7 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate & UI
         
         
                self.nextButton.isEnabled = false
-               self.nextButton.setTitle("Loding...", for: .normal)
+               self.nextButton.setTitle("loading...", for: .normal)
                
                let armazenamento = Storage.storage().reference()
                let imagens = armazenamento.child("imagens")
@@ -82,12 +82,14 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate & UI
                            if erro == nil {
                                
                                print("Sucesso ao fazer o upload do Arquivo")
-                               
-                              // let url = metaDados?.downloadURL()?.absoluteString
-                               //self.performSegue(withIdentifier: "selecionarUsuarioSegue", sender: url)
-                               
-                               self.nextButton.isEnabled = true
-                               self.nextButton.setTitle("Next", for: .normal)
+                            
+                            let imagemRecuperada = imagens.child("\(self.idImagem).jpg")
+                            
+                            imagemRecuperada.downloadURL { (url, error) in
+                                print("Link: \(url?.absoluteString)")
+                                self.performSegue(withIdentifier:"SegueSelecionarUsuarios", sender: url)
+                            }
+                            
                                
                            }else{
                             

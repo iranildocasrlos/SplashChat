@@ -73,6 +73,9 @@ class CreateViewController: UIViewController {
                             print("Criado base de dados...")
                             self.performSegue(withIdentifier: "SegueCadastroPrincipal", sender: nil)
                         }
+                        if erro != nil{
+                            print("Erro base de dados...\(erro.debugDescription)")
+                        }
                     }
                 }
             }
