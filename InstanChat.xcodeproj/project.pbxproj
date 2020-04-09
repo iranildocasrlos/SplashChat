@@ -108,12 +108,12 @@
 		8AD27CF02428F51B009F398B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8A0365E1243E06EF00E7D56B /* UsuariosTableViewController.swift */,
 				8A3CF9A024126A0400A5537E /* ViewController.swift */,
 				8AD27CEE2428F511009F398B /* CreateViewController.swift */,
 				8AD27CEC2428F4F8009F398B /* LoginViewController.swift */,
 				8AA3CC6E243ACE1900CC60E6 /* InstantsViewController.swift */,
 				8AA3CC70243ACE4E00CC60E6 /* FotoViewController.swift */,
-				8A0365E1243E06EF00E7D56B /* UsuariosTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

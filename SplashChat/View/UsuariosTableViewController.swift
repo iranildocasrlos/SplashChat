@@ -8,10 +8,15 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class UsuariosTableViewController: UITableViewController {
     
     var usuarios : [Usuario] = []
+    var urlImagem = ""
+    var descricao = ""
+    var idImagem = ""
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,10 +62,57 @@ class UsuariosTableViewController: UITableViewController {
         // Configure the cell...
         let usuario = self.usuarios[indexPath.row]
         celula.textLabel?.text = usuario.nome
+        celula.detailTextLabel?.text = usuario.email
 
         return celula
     }
     
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let usuarioSelecionado = self.usuarios[indexPath.row]
+        let idUsuarioSelecionado = usuarioSelecionado.uid
+        let auth = Auth.auth()
+        
+        let database = Database.database().reference()
+        let usuarios = database.child("usuarios")
+        
+        if let idUsuarioLogado = auth.currentUser?.uid{
+            if let emailUsuarioLogado  = auth.currentUser?.email{
+                
+                let usuarioLogado = usuarios.child(idUsuarioLogado)
+                usuarioLogado.observeSingleEvent(of: DataEventType.value) { (snapshot) in
+                    
+                    let snaps = usuarios.child(idUsuarioSelecionado).child("snaps")
+                    
+                    let dados =  snapshot.value as? NSDictionary
+                    
+                           
+                           let dadosSnaps = [
+                               
+                            "de": emailUsuarioLogado,
+                               "nome": dados?["nome"] as! String,
+                               "descricao": self.descricao,
+                               "urlImagem": self.urlImagem,
+                               "idImagem": self.idImagem
+                           
+                           ]
+                           
+                           snaps.childByAutoId().setValue(dadosSnaps)
+                           
+                    
+                }
+                
+            }
+        }
+        
+        
+        
+        
+       
+        
+        
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.

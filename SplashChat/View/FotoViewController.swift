@@ -23,7 +23,8 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate & UI
     
     
     var imagePicker = UIImagePickerController()
-     var idImagem = NSUUID().uuidString
+    var idImagem = NSUUID().uuidString
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +88,7 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate & UI
                             
                             imagemRecuperada.downloadURL { (url, error) in
                                 print("Link: \(url?.absoluteString)")
-                                self.performSegue(withIdentifier:"SegueSelecionarUsuarios", sender: url)
+                                self.performSegue(withIdentifier:"SegueSelecionarUsuarios", sender: url?.absoluteString)
                             }
                             
                                
@@ -101,26 +102,26 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate & UI
                        })
                        
                    }
-                   
-                   
-                   
-               
         
+               }
+
+        }// Fim do método next
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if  segue.identifier == "SegueSelecionarUsuarios"{
+            
+            let usuarioViewController = segue.destination as! UsuariosTableViewController
+            usuarioViewController.descricao = self.descricao.text!
+            usuarioViewController.urlImagem = sender as! String
+            usuarioViewController.idImagem = self.idImagem
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-        
-        
-    }
+    
+    
+    
+    
 
 }
