@@ -10,6 +10,7 @@
 		1324EE0761425A45FEB8D04C /* Pods_InstanChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F01B36F8D7465A07691348 /* Pods_InstanChat.framework */; };
 		8A0365E2243E06F000E7D56B /* UsuariosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0365E1243E06EF00E7D56B /* UsuariosTableViewController.swift */; };
 		8A0365E4243E56E900E7D56B /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0365E3243E56E900E7D56B /* Usuario.swift */; };
+		8A32003C2440B65F007355F8 /* Instants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32003B2440B65F007355F8 /* Instants.swift */; };
 		8A3CF99D24126A0400A5537E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CF99C24126A0400A5537E /* AppDelegate.swift */; };
 		8A3CF99F24126A0400A5537E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CF99E24126A0400A5537E /* SceneDelegate.swift */; };
 		8A3CF9A124126A0400A5537E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CF9A024126A0400A5537E /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 		898374E546C9132B04DE8E99 /* Pods-InstanChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanChat.debug.xcconfig"; path = "Target Support Files/Pods-InstanChat/Pods-InstanChat.debug.xcconfig"; sourceTree = "<group>"; };
 		8A0365E1243E06EF00E7D56B /* UsuariosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuariosTableViewController.swift; sourceTree = "<group>"; };
 		8A0365E3243E56E900E7D56B /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		8A32003B2440B65F007355F8 /* Instants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instants.swift; sourceTree = "<group>"; };
 		8A3CF99924126A0400A5537E /* InstanChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstanChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A3CF99C24126A0400A5537E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A3CF99E24126A0400A5537E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				8AE02776243D72E50054252C /* Alerta.swift */,
 				8A0365E3243E56E900E7D56B /* Usuario.swift */,
+				8A32003B2440B65F007355F8 /* Instants.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				8AD27CED2428F4F8009F398B /* LoginViewController.swift in Sources */,
 				8A3CF9A124126A0400A5537E /* ViewController.swift in Sources */,
 				8A3CF99D24126A0400A5537E /* AppDelegate.swift in Sources */,
+				8A32003C2440B65F007355F8 /* Instants.swift in Sources */,
 				8AA3CC6F243ACE1A00CC60E6 /* InstantsViewController.swift in Sources */,
 				8A0365E4243E56E900E7D56B /* Usuario.swift in Sources */,
 				8A3CF99F24126A0400A5537E /* SceneDelegate.swift in Sources */,

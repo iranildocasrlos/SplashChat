@@ -8,15 +8,45 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
-class InstantsViewController: UIViewController {
+class InstantsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+   
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var instans : [Instants] = []
     
     let autenticacao = Auth.auth()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let idUsuarioLogado = autenticacao.currentUser?.uid{
+            let database = Database.database().reference()
+            let usuarios = database.child("usuarios")
+            let instants = usuarios.child(idUsuarioLogado).child("instants")
+            
+            
+            //Cria Ouvinte para snaps
+            instants.observe(DataEventType.childAdded) { (snapshot)in
+                
+                let dados = snapshot.value as? NSDictionary
+                
+                let instan = Instants()
+                instan.identificador = snapshot.key
+                instan.nome =  dados?["nome"] as! String
+                instan.descricao = dados?["descricao"] as! String
+                instan.urlImagem = dados?["urlImagem"] as! String
+                instan.identificador = dados?["idImagem"] as! String
+                
+                self.instans.append(instan)
+                self.tableView.reloadData()
+                
+                 
+            }
+        }
+        
     }
     
 
@@ -32,6 +62,37 @@ class InstantsViewController: UIViewController {
         
         
     }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+          let totalInstans = instans.count
+          if totalInstans == 0{
+            return 1
+        }
+        
+          return  totalInstans
+        
+    }
+    
+    
+       
+       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let celula = tableView.dequeueReusableCell(withIdentifier: "celula", for: indexPath)
+        
+          let totalInstans = instans.count
+          if totalInstans == 0{
+            celula.textLabel?.text = "no instan for you"
+          }else{
+            let inst = self.instans[indexPath.row]
+            celula.textLabel?.text = inst.nome
+            celula.detailTextLabel?.text = inst.descricao
+            
+        }
+        
+        return celula
+       }
+       
     /*
     // MARK: - Navigation
 

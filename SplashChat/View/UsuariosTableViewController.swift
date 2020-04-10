@@ -24,6 +24,8 @@ class UsuariosTableViewController: UITableViewController {
         let database = Database.database().reference()
         let usuarios = database.child("usuarios")
         
+        let idUsuarioLogado = Auth.auth().currentUser?.uid
+        
         /* Adiciona evento novo usuarios a lista*/
         usuarios.observe(DataEventType.childAdded) { (snapshot) in
             print(snapshot)
@@ -36,7 +38,10 @@ class UsuariosTableViewController: UITableViewController {
             
             let usuario = Usuario(email: emailUsuario, nome: nomeUsuario, uid: idUsuario)
             
-            self.usuarios.append(usuario)
+            if (idUsuario != idUsuarioLogado){
+                 self.usuarios.append(usuario)
+            }
+           
             self.tableView.reloadData()
             
         }
@@ -82,7 +87,7 @@ class UsuariosTableViewController: UITableViewController {
                 let usuarioLogado = usuarios.child(idUsuarioLogado)
                 usuarioLogado.observeSingleEvent(of: DataEventType.value) { (snapshot) in
                     
-                    let snaps = usuarios.child(idUsuarioSelecionado).child("snaps")
+                    let snaps = usuarios.child(idUsuarioSelecionado).child("instants")
                     
                     let dados =  snapshot.value as? NSDictionary
                     
@@ -98,7 +103,7 @@ class UsuariosTableViewController: UITableViewController {
                            ]
                            
                            snaps.childByAutoId().setValue(dadosSnaps)
-                           
+                    self.navigationController?.popToRootViewController(animated: true)
                     
                 }
                 
