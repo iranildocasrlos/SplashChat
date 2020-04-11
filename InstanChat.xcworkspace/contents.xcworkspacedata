@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Instants.swift">
-   </FileRef>
-   <FileRef
       location = "group:/Users/iranildo/Documents/IOS/SplashChat/InstanChat.xcodeproj">
    </FileRef>
    <FileRef
