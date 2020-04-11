@@ -16,6 +16,7 @@ pod 'Fabric'
 pod 'Crashlytics'
 pod 'Firebase/Auth'
 pod 'Firebase/Storage'
+pod 'SDWebImage'
 
 
 

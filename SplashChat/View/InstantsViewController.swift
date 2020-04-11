@@ -38,13 +38,31 @@ class InstantsViewController: UIViewController, UITableViewDelegate, UITableView
                 instan.nome =  dados?["nome"] as! String
                 instan.descricao = dados?["descricao"] as! String
                 instan.urlImagem = dados?["urlImagem"] as! String
-                instan.identificador = dados?["idImagem"] as! String
+                instan.idImagem = dados?["idImagem"] as! String
                 
                 self.instans.append(instan)
                 self.tableView.reloadData()
                 
                  
             }
+            
+            /*Adiciona um ouvinte para o item removido*/
+            instants.observe(DataEventType.childRemoved) { (snapshot) in
+                
+                var indice = 0
+                for insta in self.instans{
+                    if insta.identificador == snapshot.key{
+                        self.instans.remove(at: indice)
+                        
+                    }
+                    indice = indice + 1
+                }
+               
+                self.tableView.reloadData()
+            }
+            
+            
+            
         }
         
     }
@@ -61,6 +79,27 @@ class InstantsViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        let totalInstans = instans.count
+        if totalInstans > 0{
+            let inst = self.instans[indexPath.row]
+            self.performSegue(withIdentifier: "SegueDetalhesInstan", sender: inst)
+        }
+        
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SegueDetalhesInstan"{
+            let detalhesInstanViewController = segue.destination as! DetalhesInstanViewController
+            
+            detalhesInstanViewController.instans = sender as! Instants
+        }
     }
     
     
@@ -83,11 +122,14 @@ class InstantsViewController: UIViewController, UITableViewDelegate, UITableView
           let totalInstans = instans.count
           if totalInstans == 0{
             celula.textLabel?.text = "no instan for you"
+            celula.detailTextLabel?.text = ""
+            celula.imageView?.isHidden = true
           }else{
+            
             let inst = self.instans[indexPath.row]
             celula.textLabel?.text = inst.nome
             celula.detailTextLabel?.text = inst.descricao
-            
+            celula.imageView?.isHidden = false
         }
         
         return celula
