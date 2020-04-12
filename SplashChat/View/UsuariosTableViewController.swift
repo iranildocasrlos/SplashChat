@@ -123,12 +123,49 @@ class UsuariosTableViewController: UITableViewController {
             textField.text = ""
         }
         
-        let acaoCancelar = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        let acaoCancelar = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         let acaoConfirmar = UIAlertAction(title: "OK", style: .default) { (confirmar) in
             
             let textField = alerta.textFields![0] 
             print("Text field: \(textField.text)")
+            let emailFriend  = textField.text
+            
+            let idUsuarioLogado = Auth.auth().currentUser?.uid as! String
+            let database = Database.database().reference()
+            let  usuarios = database.child("usuarios").queryOrdered(byChild: "email").queryEqual(toValue: emailFriend)
+            
+            usuarios.observeSingleEvent(of: DataEventType.childAdded) { (snapshot) in
+                if snapshot.exists(){
+                    if let dados = snapshot.value as? [String : Any]{
+                        let idAmigo = snapshot.key
+                        if let nomeAmigo = dados["nome"] as? String{
+                            
+                            let meusAmigos = database.child("usuarios").child(idUsuarioLogado).child("friends").child(idAmigo)
+                            
+                            //Cria insere dados dos amigos
+                            let dadosAmigo = [
+                                "dAmigo" : idAmigo,
+                                "nome"  : nomeAmigo,
+                                "email" : emailFriend
+                                ]
+                           
+                            meusAmigos.ref.updateChildValues(dadosAmigo) { (erro, reference) in
+                                if erro == nil{
+                                     self.exibirMensagem(titulo: "Sucesso", mensagem: "Amigo adicionado a sua base dados")
+                                }else{
+                                     self.exibirMensagem(titulo: "Erro", mensagem: "Erro ao adicionado a sua base dados")
+                                }
+                            }
+                        }
+                  
+                    }
+                    
+                }
+            }
+            
+            
+            
         }
         
         alerta.addAction(acaoConfirmar)
@@ -144,22 +181,15 @@ class UsuariosTableViewController: UITableViewController {
     
     func exibirMensagem(titulo: String, mensagem : String ){
         let alerta = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
-        alerta.addTextField { (textField) in
-            textField.text = ""
-        }
-        let acaoCancelar = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let acaoConfirmar = UIAlertAction(title: "OK", style: .default) { (confirmar) in
+       
+        let acaoCancelar = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        //let acaoConfirmar = UIAlertAction(title: "OK", style: .default) { (confirmar) in
             
             
-            
-            let textField = alerta.textFields![0] // Force unwrapping because we know it exists.
-            print("Text field: \(textField.text)")
-            
-            
-        }
+     //   }
         
         alerta.addAction(acaoCancelar)
-        alerta.addAction(acaoConfirmar)
+        //alerta.addAction(acaoConfirmar)
         present(alerta, animated: true, completion: nil)
     }
     
