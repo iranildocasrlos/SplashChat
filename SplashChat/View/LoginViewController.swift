@@ -20,7 +20,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        autenticacao.addStateDidChangeListener { (autenticar, usuario) in
+            if let usuarioLogado = usuario{
+                self.performSegue(withIdentifier: "SegueLoginPrincipal", sender: nil)
+            }
+        }
         // Do any additional setup after loading the view.
     }
     

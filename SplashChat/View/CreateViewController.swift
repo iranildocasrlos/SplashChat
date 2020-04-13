@@ -32,7 +32,11 @@ class CreateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        autenticacao.addStateDidChangeListener { (autenticar, usuario) in
+            if let usuarioLogado = usuario{
+                self.performSegue(withIdentifier: "SegueCadastroPrincipal", sender: nil)
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -66,7 +70,7 @@ class CreateViewController: UIViewController {
                     
                     autenticacao.createUser(withEmail: email, password: senha) { (success, erro) in
                         if success != nil{
-                            self.exibirMensagem(titulo: "Success", mensagem: "Successfully authenticated ... ")
+                           
                             let dadosUsuario  = [
                             
                                 "nome" : nome,
@@ -77,9 +81,9 @@ class CreateViewController: UIViewController {
                             ] as? [String : Any]
                             
                             
-                            self.database.child(self.autenticacao.currentUser!.uid).setValue(dadosUsuario)
-                            print("Criado base de dados...")
-                            self.performSegue(withIdentifier: "SegueCadastroPrincipal", sender: nil)
+                             self.database.child(self.autenticacao.currentUser!.uid).setValue(dadosUsuario)
+                             self.exibirMensagem(titulo: "Success", mensagem: "Successfully authenticated ... ")
+                             self.performSegue(withIdentifier: "SegueCadastroPrincipal", sender: nil)
                         }
                         if erro != nil{
                             print("Erro base de dados...\(erro.debugDescription)")

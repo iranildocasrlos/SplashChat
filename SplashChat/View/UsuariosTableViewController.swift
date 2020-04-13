@@ -25,9 +25,10 @@ class UsuariosTableViewController: UITableViewController {
         let usuarios = database.child("usuarios")
         
         let idUsuarioLogado = Auth.auth().currentUser?.uid
+        let minhaLista = usuarios.child(idUsuarioLogado!).child("friends")
         
         /* Adiciona evento novo usuarios a lista*/
-        usuarios.observe(DataEventType.childAdded) { (snapshot) in
+        minhaLista.observe(DataEventType.childAdded) { (snapshot) in
             print(snapshot)
             
             let dados  = snapshot.value as? NSDictionary
@@ -38,9 +39,9 @@ class UsuariosTableViewController: UITableViewController {
             
             let usuario = Usuario(email: emailUsuario, nome: nomeUsuario, uid: idUsuario)
             
-            if (idUsuario != idUsuarioLogado){
+            
                 self.usuarios.append(usuario)
-            }
+            
             
             self.tableView.reloadData()
             
