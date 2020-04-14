@@ -35,6 +35,43 @@ class CreateViewController: UIViewController {
         autenticacao.addStateDidChangeListener { (autenticar, usuario) in
             if let usuarioLogado = usuario{
                 self.performSegue(withIdentifier: "SegueCadastroPrincipal", sender: nil)
+                
+                
+                //DataBase
+                
+                let database = Database.database().reference()
+                let usuarios = database.child("usuarios").child(usuarioLogado.uid)
+                
+                print("usuario logado : id \(usuarioLogado.uid)")
+                
+                usuarios.observeSingleEvent(of: .value, with: { (snapshot) in
+                    let dados = snapshot.value as? NSDictionary
+                    
+                    if dados != nil{
+                        
+                        let ud = UserDefaults.standard
+                        
+                        if let dados = ud.data(forKey: "fcmToken"), let tokenSalvo = try?
+                            JSONDecoder().decode([String: String].self, from: dados){
+                            
+                            
+                            
+                            if   let  tokenFCM = tokenSalvo as? [String : Any]{
+                                
+                                
+                                let dadosUsuario = tokenFCM
+                                    as [String : Any]
+                                
+                                
+                                usuarios.ref.updateChildValues(dadosUsuario)
+                                
+                            }
+                        }
+                    }
+                })
+                //Fim DataBase
+
+                
             }
         }
         // Do any additional setup after loading the view.

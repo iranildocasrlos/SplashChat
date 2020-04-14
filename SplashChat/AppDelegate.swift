@@ -15,6 +15,7 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
+  let center = UNUserNotificationCenter.current()
   let gcmMessageIDKey = "gcm.message_id"
 
   func application(_ application: UIApplication,
@@ -43,6 +44,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     application.registerForRemoteNotifications()
+    
+    
+    
+    
+    //Criando central de notificações
+    center.delegate = self
+    center.getNotificationSettings { (settings) in
+        if settings.authorizationStatus == .notDetermined{
+            let options: UNAuthorizationOptions = [.alert, .sound, .badge, .carPlay]
+            self.center.requestAuthorization(options: options) { (success, erro) in
+                if erro == nil{
+                    print(success)
+                }else{
+                    print(erro!.localizedDescription)
+                }
+            }
+        }else if settings.authorizationStatus == .denied{
+            print("usuário negou a notificação")
+        }
+    }
+    
+    let confirmAction = UNNotificationAction(identifier: "Confirm", title: "open messaging", options: [.foreground])
+    let confirmCancel = UNNotificationAction(identifier: "Cancel", title: "Cancel", options: [.foreground])
+    
+    let category = UNNotificationCategory(identifier: "New instan", actions: [confirmAction, confirmCancel], intentIdentifiers: [], hiddenPreviewsBodyPlaceholder: "", options: [.customDismissAction])
+    
+    
+    center.setNotificationCategories([category])
+    
+    application.registerForRemoteNotifications()
+    
 
     // [END register_for_notifications]
     return true
@@ -95,6 +127,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // With swizzling disabled you must set the APNs token here.
     // Messaging.messaging().apnsToken = deviceToken
   }
+    
+    
 }
 
 // [START ios_10_message_handling]
@@ -147,6 +181,17 @@ extension AppDelegate : MessagingDelegate {
     NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
     // TODO: If necessary send token to application server.
     // Note: This callback is fired at each app startup and whenever a new token is generated.
+    
+    //Enviando token para o DataBase
+    
+     let ud = UserDefaults.standard
+     let tokens: [String: String] = dataDict
+     
+     if let data = try? JSONEncoder().encode(tokens){
+     ud.set(data, forKey: "fcmToken")
+     }
+    
+    
   }
   // [END refresh_token]
   // [START ios_10_data_message]

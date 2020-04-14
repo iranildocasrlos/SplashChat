@@ -16,7 +16,9 @@ class UsuariosTableViewController: UITableViewController {
     var urlImagem = ""
     var descricao = ""
     var idImagem = ""
+    let authorization = "key=AAAAuM2FzUw:APA91bGE6g8ELIvSOON4yElZcfEBHu_3Jx6zwcOPqdKSzg6Gv4CTYO1qGarnh6fOPAMdije8Im21fxud8BGJQS6t43kBdTRCryM7bVUiBk-0MV6SyJE-j6WYWqevszIKzmnyp32D67qE"
     
+    var token = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,7 @@ class UsuariosTableViewController: UITableViewController {
         
         /* Adiciona evento novo usuarios a lista*/
         minhaLista.observe(DataEventType.childAdded) { (snapshot) in
-            print(snapshot)
+           // print(snapshot)
             
             let dados  = snapshot.value as? NSDictionary
             
@@ -104,6 +106,7 @@ class UsuariosTableViewController: UITableViewController {
                     ]
                     
                     snaps.childByAutoId().setValue(dadosSnaps)
+                    self.getToken(nome: dados?["nome"] as! String, idAmigo : idUsuarioSelecionado )
                     self.navigationController?.popToRootViewController(animated: true)
                     
                 }
@@ -153,9 +156,9 @@ class UsuariosTableViewController: UITableViewController {
                            
                             meusAmigos.ref.updateChildValues(dadosAmigo) { (erro, reference) in
                                 if erro == nil{
-                                     self.exibirMensagem(titulo: "Sucesso", mensagem: "Amigo adicionado a sua base dados")
+                                     self.exibirMensagem(titulo: "Successfuly", mensagem: "Friend add the your DataBase...")
                                 }else{
-                                     self.exibirMensagem(titulo: "Erro", mensagem: "Erro ao adicionado a sua base dados")
+                                     self.exibirMensagem(titulo: "Erro", mensagem: "Error, not add")
                                 }
                             }
                         }
@@ -239,5 +242,88 @@ class UsuariosTableViewController: UITableViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    
+    func upStream(title : String, body : String ,  authorization : String, token : String, nome : String){
+        
+        
+        //   HTTP Post in Swift capturing the errors
+        let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
+        let postParams: [String : Any] = ["to": token, "notification": ["body": body, "title": title]]
+        
+        let request = NSMutableURLRequest(url: url! as URL)
+        request.httpMethod = "POST"
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.setValue(authorization, forHTTPHeaderField: "Authorization")
+        
+        do
+        {
+            request.httpBody = try JSONSerialization.data(withJSONObject: postParams, options: JSONSerialization.WritingOptions())
+            print("My paramaters: \(postParams)")
+        }
+        catch
+        {
+            print("Caught an error: \(error)")
+        }
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            
+            if let realResponse = response as? HTTPURLResponse
+            {
+                if realResponse.statusCode != 200
+                {
+                    print("Not a 200 response")
+                }else{
+                    print(" 200 response")
+                }
+            }
+            
+            if let postString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
+            {
+                print("POST: \(postString)")
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
+    
+    
+    
+    func getToken(nome : String, idAmigo : String ){
+        
+        let database = Database.database().reference()
+        let amigo = database.child("usuarios")
+        
+        //let queryOperacional = usuarios.queryOrdered(byChild: "bairro").queryEqual(toValue: bairroComparar)
+        
+        amigo.observe(.childAdded) { (snapshot) in
+            if let dados = snapshot.value as? [String: Any]{
+                if let id = snapshot.key as? String{
+                    if idAmigo == id{
+                        
+                        if let tokenAmigo = dados["token"] as? String{
+                                    self.token = tokenAmigo
+                                    self.upStream(title: "New Message", body: "\(nome)", authorization: self.authorization, token: self.token, nome: nome)
+                                    
+                            
+                        }
+                        
+                    }
+                }
+                        
+            }
+        }
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
     
 }
