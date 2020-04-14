@@ -17,9 +17,9 @@
 		8A3CF9A124126A0400A5537E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CF9A024126A0400A5537E /* ViewController.swift */; };
 		8A3CF9A624126A0D00A5537E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A3CF9A524126A0D00A5537E /* Assets.xcassets */; };
 		8A3CF9A924126A0D00A5537E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A3CF9A724126A0D00A5537E /* LaunchScreen.storyboard */; };
-		8A3CF9B124126F4F00A5537E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A3CF9B024126F4F00A5537E /* GoogleService-Info.plist */; };
 		8AA3CC6F243ACE1A00CC60E6 /* InstantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA3CC6E243ACE1900CC60E6 /* InstantsViewController.swift */; };
 		8AA3CC71243ACE4E00CC60E6 /* FotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA3CC70243ACE4E00CC60E6 /* FotoViewController.swift */; };
+		8AC602D52444E07C0023B69B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AC602D42444E07C0023B69B /* GoogleService-Info.plist */; };
 		8AD27CED2428F4F8009F398B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD27CEC2428F4F8009F398B /* LoginViewController.swift */; };
 		8AD27CEF2428F511009F398B /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD27CEE2428F511009F398B /* CreateViewController.swift */; };
 		8AD624BA242C609D001A3DF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AD624B9242C609D001A3DF9 /* Main.storyboard */; };
@@ -32,6 +32,7 @@
 		898374E546C9132B04DE8E99 /* Pods-InstanChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanChat.debug.xcconfig"; path = "Target Support Files/Pods-InstanChat/Pods-InstanChat.debug.xcconfig"; sourceTree = "<group>"; };
 		8A0365E1243E06EF00E7D56B /* UsuariosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuariosTableViewController.swift; sourceTree = "<group>"; };
 		8A0365E3243E56E900E7D56B /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		8A242AB32444D88E008D3E83 /* InstanChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstanChat.entitlements; sourceTree = "<group>"; };
 		8A2F792B244154CB00E993C5 /* DetalhesInstanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesInstanViewController.swift; sourceTree = SOURCE_ROOT; };
 		8A32003B2440B65F007355F8 /* Instants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instants.swift; sourceTree = "<group>"; };
 		8A3CF99924126A0400A5537E /* InstanChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstanChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,9 +42,9 @@
 		8A3CF9A524126A0D00A5537E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A3CF9A824126A0D00A5537E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A3CF9AA24126A0D00A5537E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8A3CF9B024126F4F00A5537E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8AA3CC6E243ACE1900CC60E6 /* InstantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantsViewController.swift; sourceTree = "<group>"; };
 		8AA3CC70243ACE4E00CC60E6 /* FotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoViewController.swift; sourceTree = "<group>"; };
+		8AC602D42444E07C0023B69B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8AD27CEC2428F4F8009F398B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8AD27CEE2428F511009F398B /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		8AD624B9242C609D001A3DF9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 		8A3CF99024126A0400A5537E = {
 			isa = PBXGroup;
 			children = (
+				8A242AB32444D88E008D3E83 /* InstanChat.entitlements */,
 				8A3CF99B24126A0400A5537E /* SplashChat */,
 				8A3CF99A24126A0400A5537E /* Products */,
 				730F34C0CD97EB04481FA301 /* Pods */,
@@ -103,8 +105,8 @@
 				8A3CF9A524126A0D00A5537E /* Assets.xcassets */,
 				8AD624B9242C609D001A3DF9 /* Main.storyboard */,
 				8A3CF9A724126A0D00A5537E /* LaunchScreen.storyboard */,
+				8AC602D42444E07C0023B69B /* GoogleService-Info.plist */,
 				8A3CF9AA24126A0D00A5537E /* Info.plist */,
-				8A3CF9B024126F4F00A5537E /* GoogleService-Info.plist */,
 			);
 			path = SplashChat;
 			sourceTree = "<group>";
@@ -202,7 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A3CF9A924126A0D00A5537E /* LaunchScreen.storyboard in Resources */,
-				8A3CF9B124126F4F00A5537E /* GoogleService-Info.plist in Resources */,
+				8AC602D52444E07C0023B69B /* GoogleService-Info.plist in Resources */,
 				8A3CF9A624126A0D00A5537E /* Assets.xcassets in Resources */,
 				8AD624BA242C609D001A3DF9 /* Main.storyboard in Resources */,
 			);
@@ -405,6 +407,7 @@
 			baseConfigurationReference = 898374E546C9132B04DE8E99 /* Pods-InstanChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = InstanChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KUNPWY7925;
 				INFOPLIST_FILE = SplashChat/Info.plist;
@@ -412,7 +415,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.localoeste.SplashChat;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.localoeste.InstanChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -424,6 +427,7 @@
 			baseConfigurationReference = F2C3CF030468314A8AAA25D8 /* Pods-InstanChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = InstanChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KUNPWY7925;
 				INFOPLIST_FILE = SplashChat/Info.plist;
@@ -431,7 +435,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.localoeste.SplashChat;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.localoeste.InstanChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
