@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "123"
             endingLineNumber = "123"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "btCreate(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,8 +30,8 @@
             filePath = "SplashChat/View/UsuariosTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -46,8 +46,8 @@
                   urlString = "file:///Users/iranildo/Documents/IOS/InstanChat/SplashChat/View/UsuariosTableViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
                   offsetFromSymbolStart = "2535">
                </Location>
                <Location
@@ -61,75 +61,11 @@
                   urlString = "file:///Users/iranildo/Documents/IOS/InstanChat/SplashChat/View/UsuariosTableViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
                   offsetFromSymbolStart = "2589">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "14236A9C-6E3C-4578-ADD0-139A5A84096B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SplashChat/View/UsuariosTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
-            landmarkName = "getToken(nome:idAmigo:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A8531C12-A588-43F3-AB57-FE276ED2495A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SplashChat/View/UsuariosTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
-            landmarkName = "getToken(nome:idAmigo:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F35EF1BF-938E-4A59-823B-AF3C4C3FC63C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SplashChat/View/UsuariosTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
-            landmarkName = "getToken(nome:idAmigo:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C0660F51-B1EC-4550-8300-DC2F0AF8575D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SplashChat/View/UsuariosTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
-            landmarkName = "getToken(nome:idAmigo:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

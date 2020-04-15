@@ -12,6 +12,8 @@ import FirebaseAuth
 
 class UsuariosTableViewController: UITableViewController {
     
+    
+    
     var usuarios : [Usuario] = []
     var urlImagem = ""
     var descricao = ""
@@ -31,7 +33,7 @@ class UsuariosTableViewController: UITableViewController {
         
         /* Adiciona evento novo usuarios a lista*/
         minhaLista.observe(DataEventType.childAdded) { (snapshot) in
-           // print(snapshot)
+            // print(snapshot)
             
             let dados  = snapshot.value as? NSDictionary
             
@@ -42,7 +44,7 @@ class UsuariosTableViewController: UITableViewController {
             let usuario = Usuario(email: emailUsuario, nome: nomeUsuario, uid: idUsuario)
             
             
-                self.usuarios.append(usuario)
+            self.usuarios.append(usuario)
             
             
             self.tableView.reloadData()
@@ -152,17 +154,17 @@ class UsuariosTableViewController: UITableViewController {
                                 "dAmigo" : idAmigo,
                                 "nome"  : nomeAmigo,
                                 "email" : emailFriend
-                                ]
-                           
+                            ]
+                            
                             meusAmigos.ref.updateChildValues(dadosAmigo) { (erro, reference) in
                                 if erro == nil{
-                                     self.exibirMensagem(titulo: "Successfuly", mensagem: "Friend add the your DataBase...")
+                                    self.exibirMensagem(titulo: "Successfuly", mensagem: "Friend add the your DataBase...")
                                 }else{
-                                     self.exibirMensagem(titulo: "Erro", mensagem: "Error, not add")
+                                    self.exibirMensagem(titulo: "Erro", mensagem: "Error, not add")
                                 }
                             }
                         }
-                  
+                        
                     }
                     
                 }
@@ -185,12 +187,12 @@ class UsuariosTableViewController: UITableViewController {
     
     func exibirMensagem(titulo: String, mensagem : String ){
         let alerta = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
-       
+        
         let acaoCancelar = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         //let acaoConfirmar = UIAlertAction(title: "OK", style: .default) { (confirmar) in
-            
-            
-     //   }
+        
+        
+        //   }
         
         alerta.addAction(acaoCancelar)
         //alerta.addAction(acaoConfirmar)
@@ -206,18 +208,42 @@ class UsuariosTableViewController: UITableViewController {
      }
      */
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
     
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            
+            let idUsuarioLogado = Auth.auth().currentUser?.uid
+            let snapshot = self.usuarios[indexPath.row]
+            
+            let idAmigo = snapshot.uid
+            
+            if (idAmigo != nil ){
+                
+                let database = Database.database().reference()
+                
+                database.child("usuarios").child(idUsuarioLogado!).child("friends").child(idAmigo)
+                    .observeSingleEvent(of: .value) { (snapshot) in
+                        
+                        
+                            snapshot.ref.removeValue()
+                            self.usuarios.remove(at: indexPath.row)
+                            tableView.deleteRows(at: [indexPath], with: .automatic)
+                            tableView.reloadData()
+                            
+                }
+                
+                
+                
+            } else if editingStyle == .insert {
+                // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            }
+        }
+        
+        
+    }
     /*
      // Override to support rearranging the table view.
      override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -304,15 +330,15 @@ class UsuariosTableViewController: UITableViewController {
                     if idAmigo == id{
                         
                         if let tokenAmigo = dados["token"] as? String{
-                                    self.token = tokenAmigo
-                                    self.upStream(title: "New Message", body: "\(nome)", authorization: self.authorization, token: self.token, nome: nome)
-                                    
+                            self.token = tokenAmigo
+                            self.upStream(title: "New Message", body: "\(nome)", authorization: self.authorization, token: self.token, nome: nome)
+                            
                             
                         }
                         
                     }
                 }
-                        
+                
             }
         }
         

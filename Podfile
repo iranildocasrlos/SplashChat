@@ -18,6 +18,8 @@ pod 'Firebase/Auth'
 pod 'Firebase/Storage'
 pod 'SDWebImage'
 pod 'Firebase/Messaging'
+pod 'Firebase/Performance'
+
 
 
 
